@@ -13,3 +13,25 @@ export function getDashboardStats(): DashboardStats {
 		averageResponseTime: 1.4,
 	};
 }
+
+export type ModelUsage = {
+	model: string;
+	requests: number;
+};
+
+export function getModelsUsage(): ModelUsage[] {
+	return [
+		{
+			model: "gpt-4o",
+			requests: 8200,
+		},
+		{
+			model: "gpt-4.1",
+			requests: 4300,
+		},
+		{
+			model: "gpt-4o-mini",
+			requests: 12500,
+		},
+	];
+}
