@@ -5,6 +5,17 @@ export type DashboardStats = {
 	averageResponseTime: number;
 };
 
+export type ModelUsage = {
+	model: string;
+	requests: number;
+};
+
+export type ApiUsage = {
+	model: string;
+	requests: number;
+	tokens: number;
+};
+
 export function getDashboardStats(): DashboardStats {
 	return {
 		totalRequests: 12450,
@@ -13,11 +24,6 @@ export function getDashboardStats(): DashboardStats {
 		averageResponseTime: 1.4,
 	};
 }
-
-export type ModelUsage = {
-	model: string;
-	requests: number;
-};
 
 export function getModelsUsage(): ModelUsage[] {
 	return [
@@ -32,6 +38,26 @@ export function getModelsUsage(): ModelUsage[] {
 		{
 			model: "gpt-4o-mini",
 			requests: 12500,
+		},
+	];
+}
+
+export function getApiUsage(): ApiUsage[] {
+	return [
+		{
+			model: "GPT-4o",
+			requests: 1200,
+			tokens: 180000,
+		},
+		{
+			model: "GPT-4.1",
+			requests: 400,
+			tokens: 62000,
+		},
+		{
+			model: "GPT-4o-mini",
+			requests: 1800,
+			tokens: 95000,
 		},
 	];
 }

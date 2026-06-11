@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { getDashboardStats } from "../services/dashboard.service";
+import { getApiUsage, getDashboardStats } from "../services/dashboard.service";
 import { getModelsUsage } from "../services/dashboard.service";
 import { asyncHandler } from "../utils/asyncHandler";
 
@@ -14,4 +14,8 @@ export const getModels = asyncHandler(async (req: Request, res: Response) => {
 	const models = getModelsUsage();
 
 	res.json(models);
+});
+
+export const getUsage = asyncHandler(async (req, res) => {
+	res.json(getApiUsage());
 });
