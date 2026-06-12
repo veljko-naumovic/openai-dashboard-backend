@@ -5,7 +5,9 @@ import { getModelsUsage } from "../services/dashboard.service";
 import { asyncHandler } from "../utils/asyncHandler";
 
 export const getStats = asyncHandler(async (req, res) => {
-	const stats = getDashboardStats();
+	const range = (req.query.range as string) || "7d";
+
+	const stats = getDashboardStats(range);
 
 	res.json(stats);
 });

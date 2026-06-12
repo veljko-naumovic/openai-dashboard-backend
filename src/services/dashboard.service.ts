@@ -16,15 +16,6 @@ export type ApiUsage = {
 	tokens: number;
 };
 
-export function getDashboardStats(): DashboardStats {
-	return {
-		totalRequests: 12450,
-		totalTokens: 845000,
-		totalCost: 142.82,
-		averageResponseTime: 1.4,
-	};
-}
-
 export function getModelsUsage(): ModelUsage[] {
 	return [
 		{
@@ -60,4 +51,32 @@ export function getApiUsage(): ApiUsage[] {
 			tokens: 95000,
 		},
 	];
+}
+
+export function getDashboardStats(range: string) {
+	switch (range) {
+		case "30d":
+			return {
+				totalRequests: 52800,
+				totalTokens: 3200000,
+				totalCost: 584.22,
+				averageResponseTime: 1.2,
+			};
+
+		case "90d":
+			return {
+				totalRequests: 154000,
+				totalTokens: 9200000,
+				totalCost: 1640.35,
+				averageResponseTime: 1.1,
+			};
+
+		default:
+			return {
+				totalRequests: 12450,
+				totalTokens: 845000,
+				totalCost: 142.82,
+				averageResponseTime: 1.4,
+			};
+	}
 }
